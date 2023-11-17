@@ -40,4 +40,17 @@ public class Program {
             }
         System.out.printf("Максимальное количество подряд идущих 1 равно: %d", max);
         }
+
+    /*
+    Во фразе "Добро пожаловать на курс по Java" переставить слова в обратном порядке.
+     */
+    //сделать сплит по пробелу/ 1 час 59 минут
+    static void task3(String str){
+        for(int i = 0, j = 10; i < j; i++){
+            System.out.printf("i=%d - j=%d\n", i, j);
+        }
+
+        String[] words = str.split(" ");
+
+    }
     }
