@@ -5,8 +5,10 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-    printName();
-    task2();
+//    printName();
+//    task2();
+    String phrase = "Добро пожаловать на курс по Java";
+    task3(phrase);
     }
     /*
     * Написать программу, которая запросит
@@ -46,11 +48,15 @@ public class Program {
      */
     //сделать сплит по пробелу/ 1 час 59 минут
     static void task3(String str){
-        for(int i = 0, j = 10; i < j; i++){
-            System.out.printf("i=%d - j=%d\n", i, j);
-        }
+//        for(int i = 0, j = 10; i < j; i++, j--){
+//            System.out.printf("i=%d - j=%d\n", i, j);
+//        }
 
         String[] words = str.split(" ");
+        for (int i = words.length - 1; i>= 0; i--) {
+            System.out.printf("%s ",words[i] );
+        }
+        System.out.println();
 
     }
     }
