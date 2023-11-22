@@ -4,7 +4,7 @@ package HomeWork.Lesson_1.Task_1;
 //Вывести все простые числа от 1 до 1000 (простое числе делится толкьо на 1 и на себя)
 public class Task2 {
     public static void main(String[] args) {
-    simpleNumber();
+        simpleNumber();
     }
 
     public static void simpleNumber() {
