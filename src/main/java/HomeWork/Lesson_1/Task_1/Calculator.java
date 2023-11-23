@@ -8,12 +8,22 @@ public class Calculator {
     public static void main(String[] args) {
         int number = request();
         System.out.println(number);
-        operation();
+        int firstNum = numOfTerminal("Введите первое целочисленное значение: ");
+        System.out.println(firstNum);
+        int secondNum = numOfTerminal("Введите второе целочисленное значение: ");
+        System.out.println(secondNum);
+        operation(number, firstNum, secondNum);
+
+
 
 
     }
+    /* Выполняем запрос на вид операции, которую необходимо будет осуществить.
+    Проверяем число на корректно ввода, потом проверяем на непривышение диапазона
+    по пунктам и возвращаем число в функцию.
+     */
 
-    public static int request() {
+    public static int request() {  // нужно исправить так, чтобы при вводе 0 програма завершалась на данном этапе!
         System.out.println("Уважаемый пользователь!\nДобро пожаловать в Калькулятор.\n" +
                 "Выберите операцию, которую хотите совершить:\n" +
                 "Для операции СЛОЖЕНИЕ введите: 1\n" +
@@ -41,20 +51,44 @@ public class Calculator {
         return num;
 
         }
+    /*
+    Метод запроса у пользователя значения с последующей его проверкой на корректность ввода
+     */
+        public static int numOfTerminal(String message) {
+            boolean flag = true;
+            int num = 0;
+            while (flag) {
+                System.out.println(message);
+                if (s.hasNextInt()) {
+                    num = s.nextInt();
+                    flag = false;
+                } else {
+                    System.out.println("Вы ввели некорректное число, повторите попытку: ");
+                    s.next();
+                }
 
-        public static void operation(int number) {
+            }
+            return num;
+        }
+
+
+
+/*
+Функция для выбора вида операции и переключения на нужную
+ */
+        public static void operation(int number, int firstNum, int secondNum) {
             switch (number) {
                 case 1:
-                    addition();
+                    addition(firstNum, secondNum);
                     break;
                 case 2:
-                    deduction();
+                    deduction(firstNum, secondNum);
                     break;
                 case 3:
-                    multiplication();
+                    multiplication(firstNum, secondNum);
                     break;
                 case 4:
-                    divide();
+                    divide(firstNum, secondNum);
                     break;
                 case 0:
                     System.out.println("Завершение работы приложения.");
@@ -62,8 +96,23 @@ public class Calculator {
             }
         }
 
-        public static void addition() {
-
+        public static void addition(int firstNum, int secondNum) {
+            int sum = firstNum + secondNum;
+            System.out.printf("Сумма числа %d и числа %d составляет: %d\n", firstNum, secondNum, sum);
         }
 
+        public static void deduction(int firstNum, int secondNum){
+            int rez = firstNum - secondNum;
+            System.out.printf("Разница между числом %d и числом %d составляет: %d\n", firstNum, secondNum, rez);
+        }
+
+        public static void multiplication(int firstNum, int secondNum){
+            int rez = firstNum * secondNum;
+            System.out.printf("Умножение числа %d на число %d составит: %d\n", firstNum, secondNum, rez);
+        }
+
+        public static void divide(int firstNum, int secondNum){
+            int rez = firstNum / secondNum;
+            System.out.printf("Деление числа %d на число %d составит: %d\n", firstNum, secondNum, rez);
+        }
 }
