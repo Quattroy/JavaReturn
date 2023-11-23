@@ -8,22 +8,17 @@ public class Task2 {
     }
 
     public static void simpleNumber() {
-//        int[] arr = new int[];
-//        int count = 0;
-//        int num;
-
-        for(int i = 2; i <= 1000; i ++) {
-            for(int j = 2; j <= i; j ++) {
-                if(i % j != 0) {
-                    j++;}
-                else {
-                    System.out.println(i + " ");
-                    break;}
-
-
-
+        for(int i = 2; i <= 1000; i++) {
+            boolean simple = false;
+            for(int j = 2; j*j <= i; j++) { // перебираем все i до того момента, пока i в квадрате не станет равно числу j
+                simple = i % j == 0;
+                if(simple){
+                    break;
+                }
             }
-
+            if(!simple) {
+                System.out.print(i + " ");
+            }
         }
     }
 }
